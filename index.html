@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Admin Login</title>
+  </head>
+  <body id="login-body">
+    <a class="yp-link" href="./add-info.html"
+      >You Are Not The Admin? Click Here</a
+    >
+    <form class="admin-form" onsubmit="event.preventDefault(); adminLogin()">
+      <input
+        value="YPLeader"
+        type="text"
+        class="admin-info admin-username"
+        placeholder="username"
+      />
+      <input
+        value="YoungPeople"
+        type="password"
+        class="admin-info admin-password"
+        placeholder="password"
+      />
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+    <script src="./login.js"></script>
+  </body>
+</html>

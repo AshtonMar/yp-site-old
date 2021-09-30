@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-weight: 100;
+  scroll-behavior: smooth;
+}
+
+/* Login Form(index.html Page) */
+#login-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: url(./images/login-back.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.yp-link {
+  text-decoration: none;
+  text-align: center;
+  background-color: white;
+  color: rgb(39, 35, 35);
+  font-size: 15px;
+  width: 290px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  height: 40px;
+}
+
+.yp-link:hover {
+  background-color: #b1acac;
+}
+
+.admin-form {
+  display: flex;
+  padding: 50px;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.admin-info {
+  text-align: center;
+  font-size: 20px;
+  border: 1px inset white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+::placeholder {
+  color: grey;
+}
+.admin-info:focus {
+  outline: none;
+  border-bottom: 1px inset black;
+}
+
+.login-btn {
+  background-color: white;
+  color: rgb(39, 35, 35);
+  font-size: 15px;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  height: 35px;
+}
+
+.login-btn:hover {
+  background-color: #b1acac;
+}
+
+/* Add Form(add-info.html Page) */
+#add-info-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(./images/login-back.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.back-btn {
+  text-align: center;
+  text-decoration: none;
+  width: 100px;
+  height: 50px;
+  background-color: white;
+  color: rgb(39, 35, 35);
+  font-size: 15px;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  height: 35px;
+}
+
+.back-btn:hover {
+  background-color: #b1acac;
+}
+.yp-form {
+  display: flex;
+  padding: 50px;
+  flex-direction: column;
+  background-color: transparent;
+}
+
+.add-input {
+  text-align: center;
+  font-size: 20px;
+  border: 1px inset white;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+::placeholder {
+  color: grey;
+}
+
+.add-input:focus {
+  outline: none;
+  border-bottom: 1px inset black;
+}
+
+#birth-date {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 0px;
+}
+
+#birth-date:hover .divider {
+  color: grey;
+}
+
+.divider {
+  color: white;
+  font-size: 45px;
+}
+
+.yp-birthday {
+  text-align: center;
+  font-size: 20px;
+  border: 1px inset white;
+  padding: 10px;
+  width: 80px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.yp-birthday:focus {
+  outline: none;
+  border-bottom: 1px inset black;
+}
+
+.add-info-btn {
+  background-color: white;
+  color: rgb(39, 35, 35);
+  font-size: 15px;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  height: 35px;
+}
+
+.add-info-btn:hover {
+  background-color: #b1acac;
+}
+
+/* ViewPage(view-info.html Page) */
+#view-body {
+  display: flex;
+  flex-direction: column;
+}
+
+#view-content {
+  padding-top: 80px;
+}
+
+.navbar {
+  position: fixed;
+  z-index: 2000;
+  border-bottom: 1px solid white;
+  background-color: black;
+  padding: 25px 50px 10px 50px;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar li {
+  list-style: none;
+}
+
+.nav-link {
+  margin-top: 10px;
+  color: white;
+  padding: 10px;
+  border: 1px solid white;
+  text-align: center;
+  list-style: none;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  background-color: white;
+  color: black;
+}
+
+.month-head {
+  font-size: 35px;
+  padding: 100px;
+  text-align: center;
+  color: white;
+  background-color: black;
+  padding-bottom: 40px;
+}
+
+.card-place {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background: url(./images/login-back.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+}
+
+.profile-card {
+  padding: 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin: 30px;
+  width: 250px;
+  height: 300px;
+}
+
+.name {
+  text-align: center;
+  font-size: 25px;
+}
+
+.profile-card p {
+  font-size: 15px;
+  margin-block: 10px;
+  text-align: center;
+}
+
+.profile-pic {
+  height: 150px;
+  width: 200px;
+}
+
+.footer {
+  color: white;
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+}
