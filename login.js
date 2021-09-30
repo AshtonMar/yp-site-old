@@ -17,3 +17,10 @@ function adminLogin() {
     window.location.href = "./add-info.html";
   }
 }
+
+window.addEventListener("keyup", function (event) {
+  let x = event.key;
+  if (x === "X") {
+    window.close();
+  }
+});

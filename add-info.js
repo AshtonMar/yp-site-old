@@ -49,3 +49,10 @@ function checkDob(dateOfbirth) {
     // pass
   }
 }
+
+window.addEventListener("keyup", function closeWindow(event) {
+  let x = event.key;
+  if (x === "X") {
+    window.location.href = "./index.html";
+  }
+});

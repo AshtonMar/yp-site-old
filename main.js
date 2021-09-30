@@ -15,7 +15,7 @@ function makeCard(info) {
 `;
 }
 
-window.addEventListener("keyup", function (event) {
+window.addEventListener("keyup", function closeWindow(event) {
   let x = event.key;
   if (x === "X") {
     window.location.href = "./index.html";

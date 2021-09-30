@@ -8,7 +8,6 @@
     <title>YP Add Info</title>
   </head>
   <body id="add-info-body">
-    <a href="./index.html" class="back-btn">Go Back</a>
     <form class="yp-form" onsubmit="event.preventDefault(); addInfo()">
       <input
         required
@@ -18,7 +17,7 @@
       />
       <input type="text" class="add-input yp-image" placeholder="Drag Image" />
       <p class="or">OR</p>
-      <input type="file" id="select-image" name="filename" />
+      <input type="file" id="select-image" class="add-input" name="filename" />
       <div id="birth-date">
         <input required type="text" class="day yp-birthday" placeholder="dd" />
         <p class="divider">/</p>
