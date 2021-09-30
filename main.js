@@ -1,17 +1,43 @@
+// Function to create yp-card that displays on the view-info.html page
 function makeCard(info) {
+  let dob = info["birthday"].substr(6);
+  let age = ageCalc(dob);
+  age = String(age);
   return `
-
 <div class="profile-card">
-<h1 class="name">${info["full_name"]}</h1>
-  <img
-  class="profile-pic"
-    src="${info["profile_image"]}"
-    alt="profile-pic"
-  />
-  <p class="age">19</p>
-  <p class="birthday">${info["birthday"]}</p>
+  <img class="profile-pic" src="${info["profile_image"]} "alt="profile-pic">
+  <div class="middle">
+    <h1 class="card-content name">${info["full_name"]}</h1>
+    <p class="card-content age">${age}</p>
+    <p class="card-content birthday">${info["birthday"]}</p>
+  </div>
 </div>
 `;
+}
+
+window.addEventListener("keyup", function (event) {
+  let x = event.key;
+  if (x === "X") {
+    window.location.href = "./index.html";
+  }
+});
+
+function currentYear() {
+  let date = new Date();
+  let year = date.getFullYear();
+  return year;
+}
+
+function ageCalc(dob) {
+  if (dob.length === 4) {
+    let thisYear = currentYear();
+    thisYear = Number(thisYear);
+    dob = Number(dob);
+    let age = thisYear - dob;
+    return age;
+  } else {
+    console.log("YP BirthDate Is Incorrect");
+  }
 }
 
 function getInfo() {

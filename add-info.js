@@ -1,13 +1,23 @@
 // Function that adds the info the user enters to the database
 function addInfo() {
   let fullname = document.querySelector(".add-input.yp-name").value;
-  let profilePic = document.querySelector(".add-input.yp-image").value;
+  let profileImagedrag = document.querySelector(".add-input.yp-image").value;
+  let profileImageselect = document.querySelector("#select-image").value;
   let day = document.querySelector(".day.yp-birthday").value;
   let month = document.querySelector(".month.yp-birthday").value;
   let year = document.querySelector(".year.yp-birthday").value;
   let birthDate = day + "/" + month + "/" + year;
 
   console.log(birthDate.length);
+  let profilePic = "";
+
+  if (profileImagedrag === null || profileImagedrag === "") {
+    profilePic = profileImageselect;
+  } else if (profileImageselect === null || profileImageselect === "") {
+    profilePic = profileImagedrag;
+  }
+
+  console.log(profilePic);
 
   let values = {
     full_name: fullname,
