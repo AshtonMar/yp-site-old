@@ -1,3 +1,30 @@
+function changeCss() {
+  let changeHref = document.querySelector("#css-change");
+  window.addEventListener("keyup", function (event) {
+    let x = event.key;
+    if (x === "C") {
+      changeHref.href = "./styles2.css";
+    } else {
+      // pass
+    }
+  });
+}
+
+function returnCss() {
+  let changeHref = document.querySelector("#css-change");
+  window.addEventListener("keyup", function (event) {
+    let x = event.key;
+    if (x === "R") {
+      changeHref.href = "./styles.css";
+    } else {
+      // pass
+    }
+  });
+}
+
+changeCss();
+returnCss();
+
 // Function to create yp-card that displays on the view-info.html page
 function makeCard(info) {
   let dob = info["birthday"];

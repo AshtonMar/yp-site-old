@@ -197,6 +197,7 @@
 #view-body {
   display: flex;
   flex-direction: column;
+  background-color: black;
 }
 
 #view-content {
@@ -204,6 +205,7 @@
 }
 
 .navbar {
+  opacity: 0.8;
   position: fixed;
   z-index: 2000;
   border-bottom: 1px solid white;
@@ -236,11 +238,10 @@
 
 .month-head {
   font-size: 35px;
-  padding: 100px;
+  padding: 50px;
   text-align: center;
   color: white;
   background-color: black;
-  padding-bottom: 40px;
 }
 
 .card-place {
@@ -344,30 +345,6 @@
   }
 
   /* Add Form(add-info.html Page) */
-  #add-info-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url(./images/login-back.jpg);
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-  }
-
-  .back-btn {
-    text-align: center;
-    text-decoration: none;
-    width: 100px;
-    height: 50px;
-    background-color: white;
-    color: rgb(39, 35, 35);
-    font-size: 15px;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    height: 35px;
-  }
-
   .back-btn:hover {
     background-color: #b1acac;
   }
@@ -397,45 +374,20 @@
   }
 
   /* ViewPage(view-info.html Page) */
-  #view-body {
-    display: flex;
-    flex-direction: column;
-  }
-
   #view-content {
-    padding-top: 80px;
+    padding-top: 10px;
   }
 
   .navbar {
-    position: fixed;
-    z-index: 2000;
-    border-bottom: 1px solid white;
-    background-color: black;
-    padding: 25px 50px 10px 50px;
-    height: 80px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .navbar li {
-    list-style: none;
+    padding: 20px 50px 10px 5px;
   }
 
   .nav-link {
-    margin-top: 10px;
-    color: white;
+    margin-right: 10px;
+    height: 40px;
+    width: 80px;
+    font-size: 15px;
     padding: 10px;
-    border: 1px solid white;
-    text-align: center;
-    list-style: none;
-    text-decoration: none;
-  }
-
-  .nav-link:hover {
-    background-color: white;
-    color: black;
   }
 
   .month-head {

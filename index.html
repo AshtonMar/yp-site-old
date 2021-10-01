@@ -11,15 +11,19 @@
     <a class="yp-link" href="./add-info.html"
       >You Are Not The Admin? Click Here</a
     >
-    <form class="admin-form" onsubmit="event.preventDefault(); adminLogin()">
+    <form
+      autocomplete="off"
+      class="admin-form"
+      onsubmit="event.preventDefault(); adminLogin()"
+    >
       <input
-        value="YPLeader"
+        autocomplete="off"
         type="text"
         class="admin-info admin-username"
         placeholder="username"
       />
       <input
-        value="YoungPeople"
+        autocomplete="off"
         type="password"
         class="admin-info admin-password"
         placeholder="password"
