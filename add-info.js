@@ -7,17 +7,19 @@ function addInfo() {
   let month = document.querySelector(".month.yp-birthday").value;
   let year = document.querySelector(".year.yp-birthday").value;
   let birthDate = day + "/" + month + "/" + year;
-
-  console.log(birthDate.length);
   let profilePic = "";
 
   if (profileImagedrag === null || profileImagedrag === "") {
     profilePic = profileImageselect;
   } else if (profileImageselect === null || profileImageselect === "") {
     profilePic = profileImagedrag;
+  } else if (
+    profileImagedrag === null ||
+    (profileImagedrag === "" && profileImageselect === null) ||
+    profileImageselect === ""
+  ) {
+    profilePic = "./images/placeholder.jpg";
   }
-
-  console.log(profilePic);
 
   let values = {
     full_name: fullname,

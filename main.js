@@ -1,11 +1,16 @@
 // Function to create yp-card that displays on the view-info.html page
 function makeCard(info) {
-  let dob = info["birthday"].substr(6);
-  let age = ageCalc(dob);
-  age = String(age);
+  let dob = info["birthday"];
+  let age = getUserAge(dob);
+  let image = info["profile_image"];
+
+  if (image === "" || image === null) {
+    image = "./images/placeholder.jpg";
+  }
+
   return `
 <div class="profile-card">
-  <img class="profile-pic" src="${info["profile_image"]} "alt="profile-pic">
+  <img class="profile-pic" src="${image}" alt="profile-pic">
   <div class="middle">
     <h1 class="card-content name">${info["full_name"]}</h1>
     <p class="card-content age">${age}</p>
@@ -15,6 +20,19 @@ function makeCard(info) {
 `;
 }
 
+function getUserAge(birthDay) {
+  let day = birthDay.substr(0, 2);
+  let month = birthDay.substr(3, 2);
+  let year = birthDay.substr(6, 4);
+
+  day = Number(day);
+  month = Number(month);
+  year = Number(year);
+  console.log(day, month, year);
+  let age = calculateAge(new Date(year, month, day));
+  return age;
+}
+
 window.addEventListener("keyup", function closeWindow(event) {
   let x = event.key;
   if (x === "X") {
@@ -22,22 +40,11 @@ window.addEventListener("keyup", function closeWindow(event) {
   }
 });
 
-function currentYear() {
-  let date = new Date();
-  let year = date.getFullYear();
-  return year;
-}
+function calculateAge(dob) {
+  let difference = Date.now() - dob.getTime();
+  var ageDate = new Date(difference);
 
-function ageCalc(dob) {
-  if (dob.length === 4) {
-    let thisYear = currentYear();
-    thisYear = Number(thisYear);
-    dob = Number(dob);
-    let age = thisYear - dob;
-    return age;
-  } else {
-    console.log("YP BirthDate Is Incorrect");
-  }
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
 }
 
 function getInfo() {
