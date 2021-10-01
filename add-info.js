@@ -21,7 +21,7 @@ function addInfo() {
     profilePic = "./images/placeholder.jpg";
   }
 
-  let values = {
+  let ypInfo = {
     full_name: fullname,
     profile_image: profilePic,
     birthday: birthDate,
@@ -34,11 +34,12 @@ function addInfo() {
     headers: {
       "Content-type": "application/json; charset=UTF-8",
     },
-    body: JSON.stringify(values),
+    body: JSON.stringify(ypInfo),
   })
     .then((response) => response.json())
     .then(() => {
       alert("Your information was added successfully");
+      window.localStorage.setItem("ypInfo", ypInfo);
       window.location.reload();
     });
 }

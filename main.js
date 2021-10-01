@@ -5,16 +5,21 @@ function makeCard(info) {
   let image = info["profile_image"];
 
   if (image === "" || image === null) {
-    image = "./images/placeholder.jpg";
+    image = "./images/placeholder.png";
+  } else {
+    // pass
   }
-
   return `
 <div class="profile-card">
   <img class="profile-pic" src="${image}" alt="profile-pic">
   <div class="middle">
-    <h1 class="card-content name">${info["full_name"]}</h1>
+    <p class="content-listing">Name</p>
+    <p class="card-content name">${info["full_name"]}</p>
+    <p class="content-listing">Age</p>
     <p class="card-content age">${age}</p>
+    <p class="content-listing">Birthday</p>
     <p class="card-content birthday">${info["birthday"]}</p>
+    <button value="${info["yp_id"]}" onclick="deleteInfo(${info["yp_id"]})" class="delete-btn">Delete</button>
   </div>
 </div>
 `;
@@ -28,8 +33,8 @@ function getUserAge(birthDay) {
   day = Number(day);
   month = Number(month);
   year = Number(year);
-  console.log(day, month, year);
   let age = calculateAge(new Date(year, month, day));
+
   return age;
 }
 
@@ -42,9 +47,24 @@ window.addEventListener("keyup", function closeWindow(event) {
 
 function calculateAge(dob) {
   let difference = Date.now() - dob.getTime();
-  var ageDate = new Date(difference);
+  let ageDate = new Date(difference);
+  let ageCalc = Math.abs(ageDate.getUTCFullYear() - 1970);
 
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
+  return ageCalc;
+}
+
+function deleteInfo(yp_id) {
+  fetch("https://yp-database.herokuapp.com/delete_userinfo/" + yp_id + "/", {
+    method: "POST",
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then(() => {
+      alert("Successfully Deleted The UserInfo");
+      window.location.reload();
+    });
 }
 
 function getInfo() {
