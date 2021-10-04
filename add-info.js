@@ -2,8 +2,7 @@
 function addInfo() {
   let fullname = document.querySelector(".add-input.yp-name").value;
   let profileImagedrag = document.querySelector(".add-input.yp-image").value;
-  let profileImageselect =
-    document.querySelector("#select-image").files[0].name;
+  let profileImageselect = document.querySelector("#select-image").value;
   let day = document.querySelector(".day.yp-birthday").value;
   let month = document.querySelector(".month.yp-birthday").value;
   let year = document.querySelector(".year.yp-birthday").value;
@@ -11,7 +10,7 @@ function addInfo() {
   let profilePic = "";
 
   if (profileImagedrag === null || profileImagedrag === "") {
-    profilePic = "./home/administrator/Downloads/" + profileImageselect;
+    profilePic = profileImageselect;
     console.log(profilePic);
   } else if (profileImageselect === null || profileImageselect === "") {
     profilePic = profileImagedrag;
