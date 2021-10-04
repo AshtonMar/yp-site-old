@@ -42,6 +42,7 @@ function addInfo() {
       alert("Your information was added successfully");
       window.localStorage.setItem("ypInfo", ypInfo);
       window.location.reload();
+      window.location.href = "./view-info.html";
     });
 }
 
