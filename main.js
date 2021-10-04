@@ -24,7 +24,7 @@ function makeCard(info) {
   return `
 <div class="profile-card">
   <img class="profile-pic" src="${image}" alt="profile-pic">
-  <div class="middle">
+  <div class="middle" onclick="viewMore(${info["yp_id"]})">
     <p class="content-listing">Name</p>
     <p class="card-content name">${info["full_name"]}</p>
     <p class="content-listing">Age</p>
@@ -57,6 +57,10 @@ window.addEventListener("keyup", function closeWindow(event) {
   }
 });
 
+function viewMore(yp_id) {
+  console.log(yp_id);
+}
+
 function calculateAge(dob) {
   let difference = Date.now() - dob.getTime();
   let ageDate = new Date(difference);
@@ -78,6 +82,16 @@ function deleteInfo(yp_id) {
       window.location.reload();
     });
 }
+
+function getUserinfo() {
+  fetch("https://yp-database.herokuapp.com/view_profiles/")
+    .then((response) => response.json())
+    .then((data) => {
+      let ypData = data.yp_data;
+      console.log(ypData);
+    });
+}
+getUserinfo();
 
 function getInfo() {
   fetch("https://yp-database.herokuapp.com/view_profiles/")
