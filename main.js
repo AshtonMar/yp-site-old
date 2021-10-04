@@ -12,7 +12,7 @@ function manipulateCss() {
   });
 }
 
-let screenSize = window.matchMedia("(max-width: 320px)");
+let screenSize = window.matchMedia("(max-width: 425px)");
 checkScreen(screenSize);
 screenSize.addListener(checkScreen);
 
