@@ -1,20 +1,10 @@
-function changeCss() {
+function manipulateCss() {
   let changeHref = document.querySelector("#css-change");
   window.addEventListener("keyup", function (event) {
     let x = event.key;
     if (x === "C") {
       changeHref.href = "./styles2.css";
-    } else {
-      // pass
-    }
-  });
-}
-
-function returnCss() {
-  let changeHref = document.querySelector("#css-change");
-  window.addEventListener("keyup", function (event) {
-    let x = event.key;
-    if (x === "R") {
+    } else if (x === "R") {
       changeHref.href = "./styles.css";
     } else {
       // pass
@@ -22,8 +12,34 @@ function returnCss() {
   });
 }
 
-changeCss();
-returnCss();
+let screenSize = window.matchMedia("(max-width: 320px)");
+checkScreen(screenSize);
+screenSize.addListener(checkScreen);
+
+function checkScreen(screenSize) {
+  if (screenSize.matches) {
+    getNav();
+  } else {
+    // pass
+  }
+}
+
+function getNav() {
+  let nav = document.querySelector(".navbar");
+  window.addEventListener("keyup", function (event) {
+    let x = event.key;
+    window.addEventListener("click", () => {
+      nav.style.left = "0px";
+    });
+    if (x === "N") {
+      nav.style.left = "-100px";
+    } else {
+      // pass
+    }
+  });
+}
+
+manipulateCss();
 
 // Function to create yp-card that displays on the view-info.html page
 function makeCard(info) {
