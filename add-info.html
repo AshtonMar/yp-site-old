@@ -15,23 +15,27 @@
         class="add-input yp-name"
         placeholder="Full Name"
       />
-      <input type="text" class="add-input yp-image" placeholder="Drag Image" />
-      <p class="or">OR</p>
       <input
-        disabled
-        type="file"
-        id="select-image"
-        class="add-input"
-        name="filename"
+        type="text"
+        accept="image/png, image/gif, image/jpeg"
+        class="add-input yp-image"
+        placeholder="Drag Image/Leave Empty"
       />
       <div id="birth-date">
-        <input required type="text" class="day yp-birthday" placeholder="dd" />
+        <input
+          required
+          type="text"
+          maxlength="2"
+          class="day yp-birthday"
+          placeholder="dd"
+        />
         <p class="divider">/</p>
         <input
           required
           type="text"
           class="month yp-birthday"
           placeholder="mm"
+          maxlength="2"
         />
         <p class="divider">/</p>
         <input
@@ -39,6 +43,7 @@
           type="text"
           class="year yp-birthday"
           placeholder="yyyy"
+          maxlength="4"
         />
       </div>
       <button type="submit" class="add-info-btn">Add Your Info</button>

@@ -8,6 +8,11 @@
   overflow-x: hidden;
 }
 
+::selection {
+  color: white;
+  background: black;
+}
+
 /* Login Form(index.html Page) */
 #login-body {
   display: flex;
@@ -118,7 +123,7 @@
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 5px;
-  width: 400px;
+  width: 300px;
 }
 
 .add-input.yp-image {
@@ -198,6 +203,10 @@
   display: flex;
   flex-direction: column;
   background-color: black;
+}
+
+.nav-icon {
+  display: none;
 }
 
 #view-content {
@@ -376,7 +385,35 @@
 
   /* ViewPage(view-info.html Page) */
   #view-content {
-    padding-top: 10px;
+    padding-top: 0px;
+  }
+
+  .nav-icon {
+    text-align: center;
+    padding: 10px;
+    color: white;
+    height: 40px;
+    font-size: 25px;
+    font-weight: lighter;
+  }
+
+  #nav-open {
+    position: fixed;
+    transition: 0.5s ease-in-out;
+  }
+
+  #nav-open:hover {
+    color: black;
+  }
+
+  #nav-close {
+    width: 20px;
+    padding: 0px;
+    transition: 0.5s ease-in-out;
+  }
+
+  #nav-close:hover {
+    color: red;
   }
 
   .month-head {
@@ -390,8 +427,10 @@
     left: -100px;
     height: 100%;
     width: 100px;
-    padding: 20px 50px 10px 5px;
+    padding: 2px;
+    padding-left: 8px;
     transition: 0.5s ease-in-out;
+    opacity: 1;
   }
 
   .nav-link {
