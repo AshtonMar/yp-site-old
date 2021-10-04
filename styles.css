@@ -442,13 +442,33 @@
     padding: 5px;
   }
 
+  .middle {
+    padding: 0px;
+    height: 160px;
+    width: 160px;
+    font-size: 10px;
+  }
+
+  .profile-pic {
+    object-fit: cover;
+    width: 190px;
+    height: 190px;
+  }
+
   .profile-card {
     position: relative;
   }
 
   .card-content {
-    font-size: 13px;
-    padding: 10px;
+    margin-left: 30px;
+    font-size: 10px;
+    padding: 5px;
+  }
+
+  .delete-btn {
+    padding: 2px;
+    font-size: 10px;
+    margin-top: 8px;
   }
 
   .footer {
