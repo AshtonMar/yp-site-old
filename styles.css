@@ -61,6 +61,7 @@
 ::placeholder {
   color: grey;
 }
+
 .admin-info:focus {
   outline: none;
   border-bottom: 1px inset black;
@@ -254,20 +255,107 @@
 }
 
 .card-place {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 180px;
+  padding-bottom: 180px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background: url(./images/login-back.jpg);
   background-size: cover;
   background-position: center;
+}
+
+.month {
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#january {
+  background: url(./images/month-backgrounds/january-background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#february {
+  background: url(./images/month-backgrounds/february-background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#march {
+  background: url(./images/month-backgrounds/march-background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#april {
+  background: url(./images/month-backgrounds/april-background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#may {
+  background: url(./images/month-backgrounds/may-background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#june {
+  background: url(./images/month-backgrounds/june-background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#july {
+  background: url(./images/month-backgrounds/july-background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#august {
+  background: url(./images/month-backgrounds/august-background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#september {
+  background: url(./images/month-backgrounds/september-background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#october {
+  background: url(./images/month-backgrounds/october-background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#november {
+  background: url(./images/month-backgrounds/november-background.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+#december {
+  background: url(./images/month-backgrounds/december-background.jpg);
+  background-size: cover;
+  background-position: center center;
   background-attachment: fixed;
 }
 
 .profile-card {
   position: relative;
-  padding: 10px;
+  padding: 5px;
   border-radius: 20px;
   margin: 30px 30px;
   background-color: black;
@@ -334,7 +422,6 @@
 
 .card-content {
   padding: 0px;
-  /* margin-left: 40px; */
   width: 100%;
   font-weight: 500;
   color: white;

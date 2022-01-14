@@ -15,6 +15,7 @@ function makeCard(info) {
   let dob = info["birthday"];
   let age = getUserAge(dob);
   let image = info["profile_image"];
+  console.log(image);
 
   if (image === "" || image === null) {
     image = "./images/placeholder.png";
@@ -27,6 +28,8 @@ function makeCard(info) {
   <div class="middle" onclick="viewMore(${info["yp_id"]})">
     <p class="content-listing">Name</p>
     <p class="card-content name">${info["full_name"]}</p>
+    <p class="content-listing">Phone Number</p>
+    <p class="card-content phone-number">${info["phone_number"]}</p>
     <p class="content-listing">Age</p>
     <p class="card-content age">${age}</p>
     <p class="content-listing">Birthday</p>
@@ -58,7 +61,15 @@ window.addEventListener("keyup", function closeWindow(event) {
 });
 
 function viewMore(yp_id) {
-  console.log(yp_id);
+  fetch("https://yp-database.herokuapp.com/view_profiles/")
+    .then((response) => response.json())
+    .then((data) => {
+      let ypData = data.yp_data;
+      console.log(ypData);
+      ypData.forEach((yp) => {
+        console.log(yp);
+      });
+    });
 }
 
 function calculateAge(dob) {
@@ -83,23 +94,18 @@ function deleteInfo(yp_id) {
     });
 }
 
-function getUserinfo() {
-  fetch("https://yp-database.herokuapp.com/view_profiles/")
-    .then((response) => response.json())
-    .then((data) => {
-      let ypData = data.yp_data;
-      console.log(ypData);
-    });
-}
-getUserinfo();
+let ypName = "";
 
 function getInfo() {
   fetch("https://yp-database.herokuapp.com/view_profiles/")
     .then((response) => response.json())
     .then((data) => {
       let ypData = data.yp_data;
+      ypName = ypData["full_name"];
+      console.log(data);
 
       ypData.forEach((yp) => {
+        console.log(yp);
         let janContainer = document.querySelector("#jan-container");
         let febContainer = document.querySelector("#feb-container");
         let marContainer = document.querySelector("#mar-container");
@@ -139,9 +145,18 @@ function getInfo() {
           decContainer.innerHTML += makeCard(yp);
         } else {
           console.log("A Users YP's Incorrect");
+          let age = calculateAge(new Date(year, month, day));
         }
       });
     });
 }
 
 getInfo();
+
+// function sendNotification() {
+//   let todayDate = Date.now();
+//   console.log(todayDate);
+//   if (Notification.permission === "granted" && "birtdayDate" === todayDate) {
+//     alert("Its " + ypName + " Birthday");
+//   }
+// }

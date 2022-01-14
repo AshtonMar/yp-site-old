@@ -6,21 +6,15 @@ function adminLogin() {
   let passwordValue = document.querySelector(
     ".admin-info.admin-password"
   ).value;
-  let username = "YPLeader";
-  let password = "YoungPeople";
+
+  let username = "admin";
+  let password = "siteAdmin";
 
   if (username === usernameValue && password === passwordValue) {
-    alert("You Are Sucessfully Logged In");
+    alert("Welcome Admin " + usernameValue);
     location.href = "./view-info.html";
   } else {
-    alert("You Are Not The Admin");
+    alert("Sorry The Details Are Incorrect, You Are Not The Admin");
     window.location.href = "./add-info.html";
   }
 }
-
-window.addEventListener("keyup", function (event) {
-  let x = event.key;
-  if (x === "X") {
-    window.close();
-  }
-});
