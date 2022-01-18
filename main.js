@@ -1,21 +1,12 @@
 let nav = document.querySelector(".navbar");
-let openBtn = document
-  .querySelector("#nav-open")
-  .addEventListener("click", () => {
-    nav.style.left = "0px";
-  });
-let closeBtn = document
-  .querySelector("#nav-close")
-  .addEventListener("click", () => {
-    nav.style.left = "-100px";
-  });
+let ypName = "";
 
 // Function to create yp-card that displays on the view-info.html page
 function makeCard(info) {
   let dob = info["birthday"];
   let age = getUserAge(dob);
   let image = info["profile_image"];
-  console.log(image);
+  localStorage.setItem("info", JSON.stringify(info));
 
   if (image === "" || image === null) {
     image = "./images/placeholder.png";
@@ -24,20 +15,17 @@ function makeCard(info) {
   }
   return `
 <div class="profile-card">
+  <p class="content-listing card-content">Name</p>
+  <p class="card-content name">${info["full_name"]}</p>
   <img class="profile-pic" src="${image}" alt="profile-pic">
-  <div class="middle" onclick="viewMore(${info["yp_id"]})">
-    <p class="content-listing">Name</p>
-    <p class="card-content name">${info["full_name"]}</p>
-    <p class="content-listing">Phone Number</p>
-    <p class="card-content phone-number">${info["phone_number"]}</p>
-    <p class="content-listing">Age</p>
-    <p class="card-content age">${age}</p>
-    <p class="content-listing">Birthday</p>
-    <p class="card-content birthday">${info["birthday"]}</p>
-    <button value="${info["yp_id"]}" onclick="deleteInfo(${info["yp_id"]})" class="delete-btn">Delete</button>
-  </div>
-</div>
-`;
+  <p class="content-listing card-content">Phone Number</p>
+  <p class="card-content phone-number">${info["phone_number"]}</p>
+  <p class="content-listing card-content">Age</p>
+  <p class="card-content age">${age}</p>
+  <p class="content-listing card-content">Birthday</p>
+  <p class="card-content birthday">${info["birthday"]}</p>
+  <button value="${info["yp_id"]}" onclick="deleteInfo(${info["yp_id"]})" class="delete-btn">Delete</button>
+</div> `;
 }
 
 function getUserAge(birthDay) {
@@ -51,25 +39,6 @@ function getUserAge(birthDay) {
   let age = calculateAge(new Date(year, month, day));
 
   return age;
-}
-
-window.addEventListener("keyup", function closeWindow(event) {
-  let x = event.key;
-  if (x === "X") {
-    window.location.href = "./index.html";
-  }
-});
-
-function viewMore(yp_id) {
-  fetch("https://yp-database.herokuapp.com/view_profiles/")
-    .then((response) => response.json())
-    .then((data) => {
-      let ypData = data.yp_data;
-      console.log(ypData);
-      ypData.forEach((yp) => {
-        console.log(yp);
-      });
-    });
 }
 
 function calculateAge(dob) {
@@ -94,15 +63,12 @@ function deleteInfo(yp_id) {
     });
 }
 
-let ypName = "";
-
 function getInfo() {
   fetch("https://yp-database.herokuapp.com/view_profiles/")
     .then((response) => response.json())
     .then((data) => {
       let ypData = data.yp_data;
       ypName = ypData["full_name"];
-      console.log(data);
 
       ypData.forEach((yp) => {
         console.log(yp);
@@ -144,8 +110,7 @@ function getInfo() {
         } else if (yp["birthday"].substr(3, 2) === "12") {
           decContainer.innerHTML += makeCard(yp);
         } else {
-          console.log("A Users YP's Incorrect");
-          let age = calculateAge(new Date(year, month, day));
+          console.log("A Users Info Is Incorrect");
         }
       });
     });
@@ -153,10 +118,9 @@ function getInfo() {
 
 getInfo();
 
-// function sendNotification() {
-//   let todayDate = Date.now();
-//   console.log(todayDate);
-//   if (Notification.permission === "granted" && "birtdayDate" === todayDate) {
-//     alert("Its " + ypName + " Birthday");
-//   }
-// }
+window.addEventListener("keyup", function closeWindow(event) {
+  let x = event.key;
+  if (x === "X") {
+    window.location.href = "./index.html";
+  }
+});

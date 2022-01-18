@@ -7,14 +7,14 @@ function adminLogin() {
     ".admin-info.admin-password"
   ).value;
 
-  let username = "admin";
-  let password = "siteAdmin";
+  let username = "YP-Admin";
+  let password = "TogetherInChrist";
 
   if (username === usernameValue && password === passwordValue) {
-    alert("Welcome Admin " + usernameValue);
+    alert("Welcome Admin");
     location.href = "./view-info.html";
   } else {
     alert("Sorry The Details Are Incorrect, You Are Not The Admin");
-    window.location.href = "./add-info.html";
+    window.location.reload();
   }
 }
