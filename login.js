@@ -6,9 +6,10 @@ function adminLogin() {
   let passwordValue = document.querySelector(
     ".admin-info.admin-password"
   ).value;
+  console.log(usernameValue);
 
-  let username = "YP-Admin";
-  let password = "TogetherInChrist";
+  let username = "admin";
+  let password = "togetherinchrist";
 
   if (username === usernameValue && password === passwordValue) {
     alert("Welcome Admin");

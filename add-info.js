@@ -2,7 +2,7 @@ let viewBtn = document
   .querySelector(".view-info-btn")
   .addEventListener("click", function viewInfo() {
     let adminAnswer = prompt("What is the password?");
-    if (adminAnswer === "TogetherInChrist") {
+    if (adminAnswer === "togetherinchrist") {
       window.location.href = "./view-info.html";
     } else {
       alert(

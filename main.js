@@ -9,7 +9,7 @@ function makeCard(info) {
   localStorage.setItem("info", JSON.stringify(info));
 
   if (image === "" || image === null) {
-    image = "./images/placeholder.png";
+    image = "./images/placeholder.jpg";
   } else {
     // pass
   }
@@ -37,6 +37,7 @@ function getUserAge(birthDay) {
   month = Number(month);
   year = Number(year);
   let age = calculateAge(new Date(year, month, day));
+  console.log(age);
 
   return age;
 }
@@ -68,10 +69,10 @@ function getInfo() {
     .then((response) => response.json())
     .then((data) => {
       let ypData = data.yp_data;
-      ypName = ypData["full_name"];
 
       ypData.forEach((yp) => {
         console.log(yp);
+        let birthday = yp["birthday"];
         let janContainer = document.querySelector("#jan-container");
         let febContainer = document.querySelector("#feb-container");
         let marContainer = document.querySelector("#mar-container");

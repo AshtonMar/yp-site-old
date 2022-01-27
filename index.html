@@ -8,9 +8,9 @@
     <title>Admin Login</title>
   </head>
   <body id="login-body">
-    <a class="yp-link" href="./add-info.html"
-      >You Are Not The Admin? Click Here</a
-    >
+    <button style="display: none" class="yp-link">
+      You Are Not The Admin? Click Here
+    </button>
     <form
       autocomplete="off"
       class="admin-form"
@@ -21,14 +21,14 @@
         type="text"
         class="admin-info admin-username"
         placeholder="username"
-        maxlength="8"
+        maxlength="5"
       />
       <input
         autocomplete="off"
         type="password"
         class="admin-info admin-password"
         placeholder="password"
-        maxlength="11"
+        maxlength="18"
       />
       <button type="submit" class="login-btn">Login</button>
     </form>
